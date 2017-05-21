@@ -35,5 +35,7 @@ You can create a user using the following command:
     ./manage.py createsuperuser
 
 or you can use already created one
+
 user: admin
+
 password: arbisoft
