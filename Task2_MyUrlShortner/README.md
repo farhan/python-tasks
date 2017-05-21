@@ -16,11 +16,10 @@ pip install -r requirements.txt
 
 ## Running the Application
 
-Before running the application we need to create the needed DB tables:
+Database (db.sqlite3) is already available in project, you don't need to create
+a new one.
 
-    ./manage.py migrate
-
-Now you can run the development web server:
+Just run the development web server:
 
     ./manage.py runserver
 
@@ -29,8 +28,9 @@ To access the applications go to the URL <http://localhost:8000/>
 
 ## Admin portal
 
+You need a user and password to access admin portal.
 http://localhost:8000/admin/
-You need a user and password to access it.
+
 you can create a user using the following command:
 
     ./manage.py createsuperuser
