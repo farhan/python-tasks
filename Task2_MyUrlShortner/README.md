@@ -23,18 +23,17 @@ Just run the development web server:
 
     ./manage.py runserver
 
-To access the applications go to the URL <http://localhost:8000/>
+To access the applications go to the URL http://localhost:8000/
 
 
 ## Admin portal
 
-You need a user and password to access admin portal.
-http://localhost:8000/admin/
+You need a user and password to access admin portal http://localhost:8000/admin/
 
-you can create a user using the following command:
+You can create a user using the following command:
 
     ./manage.py createsuperuser
 
-or you can use already created
+or you can use already created one
 user: admin
 password: arbisoft
