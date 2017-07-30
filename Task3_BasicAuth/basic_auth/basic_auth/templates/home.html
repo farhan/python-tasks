@@ -5,6 +5,9 @@
 {% block content %}
   <br>
   {% if user.is_authenticated %}
+    <br>
+    <button onclick="alert('Name: {{user.name}} \nEmail: {{user.email}}\nIs Admin: {{user.is_admin}}\nDOB: {{user.date_of_birth}}');" type="button">Show user details</button>
+    <br><br>
     <h2>Welcome, {{ user.name }}!</h2>
     There is no place like home!
   {% else %}

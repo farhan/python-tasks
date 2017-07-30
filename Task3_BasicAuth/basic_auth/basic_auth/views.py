@@ -1,17 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from basic_auth.models import MyUser
 
 from basic_auth.forms import LoginForm, RegisterForm
 from basic_auth.messages import Message
-
-
-@login_required
-def home(request):
-    return render(request, 'home.html')
 
 
 def log_out(request):
@@ -19,15 +12,31 @@ def log_out(request):
     return render(request, 'home.html')
 
 
-class RegisterView(View):
+class BaseView(View):
+    def get(self, request):
+        if request.GET.get('logout'):
+            return redirect(reverse('logout'))
+
+
+class HomeView(BaseView):
+    template_name = 'home.html'
+
+    def get(self, request):
+        if not request.GET:
+            return render(request, self.template_name)
+        return super(HomeView, self).get(request)
+
+
+class RegisterView(BaseView):
     template_name = 'register.html'
     form_class = RegisterForm
 
     def get(self, request):
         if request.user.is_authenticated():
             return redirect(reverse('home'))
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form})
+        if not request.GET:
+            form = self.form_class(None)
+            return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         if request.user.is_authenticated():
@@ -44,16 +53,16 @@ class RegisterView(View):
             return render(request, self.template_name, {'form': form})
 
 
-class LoginView(View):
+class LoginView(BaseView):
     template_name = 'login.html'
     form_class = LoginForm
 
     def get(self, request):
         if request.user.is_authenticated():
             return redirect(reverse('home'))
-        form = self.form_class(
-            None, initial={'email': request.GET.get('email', '')})
-        return render(request, self.template_name, {'form': form})
+        if not request.GET:
+            form = self.form_class(None, initial={'email': request.GET.get('email', '')})
+            return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         if request.user.is_authenticated():

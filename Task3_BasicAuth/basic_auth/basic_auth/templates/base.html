@@ -9,12 +9,15 @@
     <h1>{% block title %}Basic Authentication Site{% endblock %}</h1>
     <hr>
     {% if user.is_authenticated %}
-    <button onclick="location.href='{% url 'logout' %}'" type="button">Logout</button>
+    <form action="" method="get">
+        <input type="submit" name="logout" value="Logout">
+    </form>
+    <!--<button onclick="location.href='{% url 'logout' %}'" type="button">Logout</button>-->
     {% else %}
     <button onclick="location.href='{% url 'login' %}'" type="button">Login</button>
     <button onclick="location.href='{% url 'register' %}'" type="button">Register</button>
     {% endif %}
-    <br><br><br>
+    <br>
 </header>
 <main>
     {% block content %}

@@ -20,7 +20,7 @@ from basic_auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.HomeView.as_view(), name='home'),
     url(r'^login/', views.LoginView.as_view(), name='login'),
     url(r'^logout/', views.log_out, name='logout'),
     url(r'^register/', views.RegisterView.as_view(), name='register'),

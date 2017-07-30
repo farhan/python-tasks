@@ -44,14 +44,18 @@ class MyUser(AbstractBaseUser):
         unique=True,
     )
     name = models.CharField(blank=False, max_length=30)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
     objects = MyUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['date_of_birth']
+    REQUIRED_FIELDS = ['name']
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
 
     def get_full_name(self):
         # The user is identified by their email address

@@ -11,7 +11,7 @@ class LoginForm(forms.Form):
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(label='Create a password', max_length=20, widget=forms.PasswordInput)
     confirm_password = forms.CharField(label='Confirm your password', max_length=20, widget=forms.PasswordInput)
-    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
+    date_of_birth = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}), required=False)
 
     class Meta:
         model = MyUser
