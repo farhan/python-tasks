@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Basic Auth Site</title>
+</head>
+<body>
+<header>
+    <h1>{% block title %}Basic Authentication Site{% endblock %}</h1>
+    <hr>
+    {% if user.is_authenticated %}
+    <form action="" method="get">
+        <input type="submit" name="logout" value="Logout">
+    </form>
+    <!--<button onclick="location.href='{% url 'logout' %}'" type="button">Logout</button>-->
+    {% else %}
+    <button onclick="location.href='{% url 'login' %}'" type="button">Login</button>
+    <button onclick="location.href='{% url 'register' %}'" type="button">Register</button>
+    {% endif %}
+    <br>
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>
