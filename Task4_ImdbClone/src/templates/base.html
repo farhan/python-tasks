@@ -50,10 +50,10 @@
                 </li>
                 <li><a>Year</a>
                     <ul>
-                        <li><a href="year.html">2017</a></li>
-                        <li><a href="year.html">2016</a></li>
-                        <li><a href="year.html">2015</a></li>
-                        <li><a href="year.html">2014</a></li>
+                        <li><a href="{% url 'movies:movie_year' 2018 %}">2018</a></li>
+                        <li><a href="{% url 'movies:movie_year' 2019 %}">2019</a></li>
+                        <li><a href="{% url 'movies:movie_year' 2020 %}">2020</a></li>
+                        <li><a href="{% url 'movies:movie_year' 2021 %}">2021</a></li>
                     </ul>
                 </li>
                 <li><a>Language</a>
