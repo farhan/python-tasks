@@ -2,143 +2,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Movies</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta charset="utf-8">
+    <title>Movies</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-	<!-- Link Swiper's CSS -->
-	<link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
-	<script src="{% static 'js/script.js' %}"></script>
-
-
-	<!-- Demo styles -->
-	<style>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 
 
+    <!-- Demo styles -->
+    <style>
 
-	</style>
+
+    </style>
 </head>
 <body>
-	<div class="wrapper">
+<div class="wrapper">
 
-		<header class="header">
-			<figure class="logo"><a href="index.html"><img src="{% static 'img/logo.png'%}" alt="Logo"></figure></a>
-			<nav class="menu">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a>Genres</a>
-						<ul>
-							<li><a href="genre.html">Action</a></li>
-							<li><a href="genre.html">Comedy</a></li>
-							<li><a href="genre.html">Drama</a></li>
-							<li><a href="genre.html">Romance</a></li>
-						</ul>
-					</li>
-					<li><a>Year</a>
-						<ul>
-							<li><a href="year.html">2017</a></li>
-							<li><a href="year.html">2016</a></li>
-							<li><a href="year.html">2015</a></li>
-							<li><a href="year.html">2014</a></li>
-						</ul>
-					</li>
-					<li><a>Language</a>
-						<ul>
-							<li><a href="language.html">English</a></li>
-							<li><a href="language.html">German</a></li>
-						</ul>
-					</li>
-					<li><a href="mostwatched.html">Most Watched</a></li>
-					<li class="mobsearch">
-						<form class="mobform">
-							<input type="text" name="s" class="mobsearchfield" placeholder="Search...">
-							<input type="submit" value="" class="mobsearchsubmit">
-						</form>
-					</li>
-				</ul>
-			</nav>
-			<form class="search">
-				<input type="text" name="s" class="searchfield" placeholder="Search...">
-				<input type="submit" value="" class="searchsubmit">
-			</form>
+    <header class="header">
+        <figure class="logo"><a href="index.html"><img
+                src="{% static 'img/logo.png'%}" alt="Logo"></a></figure>
+        </a>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'movies:movie_list'%}">Home</a></li>
+                <li><a>Genres</a>
+                    <ul>
+                        <li><a href="{% url 'movies:movie_category' 'action' %}">Action</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'movies:movie_category' 'comedy' %}">Comedy</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'movies:movie_category' 'drama' %}">Drama</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'movies:movie_category' 'romance' %}">Romance</a>
+                        </li>
+                        <li><a href="{% url 'movies:movie_category' 'mix' %}">Mix</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a>Year</a>
+                    <ul>
+                        <li><a href="year.html">2017</a></li>
+                        <li><a href="year.html">2016</a></li>
+                        <li><a href="year.html">2015</a></li>
+                        <li><a href="year.html">2014</a></li>
+                    </ul>
+                </li>
+                <li><a>Language</a>
+                    <ul>
+                        <li><a href="{% url 'movies:movie_language' 'english' %}">English</a></li>
+                        <li><a href="{% url 'movies:movie_language' 'german' %}">German</a></li>
+                        <li><a href="{% url 'movies:movie_language' 'spanish' %}">Spanish</a></li>
+                    </ul>
+                </li>
+                <li><a href="mostwatched.html">Most Watched</a></li>
+            </ul>
+        </nav>
+        <form class="search" method="GET" action="{% url 'movies:movie_search' %}">
+            <input style="color:red;" type="text" name="query" class="searchfield"
+                   value="{{ request.GET.q}}" placeholder="Search...">
+            <input type="submit" value="" class="searchsubmit">
+        </form>
 
-			<div class="toggle"><img src="img/menu.svg"></div>
-		</header>
-		<!-- Swiper -->
-		<div class="homeslider">
-			<div class="swiper-container">
+        <div class="toggle"><img src="img/menu.svg"></div>
+    </header>
+    <!-- Swiper -->
+    <div class="homeslider">
+        <div class="swiper-container">
 
-				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster1.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 2</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 3</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Add Pagination -->
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/slider/poster2.jpg">
+                    <div class="caption">
+                        <div class="captioninside">
+                            <h3>Movie Title</h3>
+                            <p>Lorem ipsum dolor siamet</p>
+                            <a href="single.html" class="playbutton">Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/slider/poster1.jpg">
+                    <div class="caption">
+                        <div class="captioninside">
+                            <h3>Movie Title 2</h3>
+                            <p>Lorem ipsum dolor siamet</p>
+                            <a href="single.html" class="playbutton">Play</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/slider/poster2.jpg">
+                    <div class="caption">
+                        <div class="captioninside">
+                            <h3>Movie Title 3</h3>
+                            <p>Lorem ipsum dolor siamet</p>
+                            <a href="single.html" class="playbutton">Play</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 
-		{% block body %}
+    {% block body %}
 
-		{% endblock body %}
+    {% endblock body %}
 
-		<footer class="footer">
-			<div class="copyright"><p>Copyright &copy 2017 www.focusoncode.com</p></div>
-			<div class="footermenu">
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="contact.html">Contact</a></li>
-					<li><a href="terms.html">Terms and conditions</a></li>
-				</ul>
-			</div>
-			<div class="tags">
-				<ul>
-					<li>Watch Free Movies Trailers</li>
-					<li>Movie Trailers</li>
-					<li>English Subtitled Movies Trailers</li>
-					<li>Latest Movies Trailers</li>
-					<li>New Movies Trailers</li>
+    <footer class="footer">
+        <div class="copyright"><p>Copyright &copy 2017 www.focusoncode.com</p>
+        </div>
+        <div class="footermenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="terms.html">Terms and conditions</a></li>
+            </ul>
+        </div>
+        <div class="tags">
+            <ul>
+                <li>Watch Free Movies Trailers</li>
+                <li>Movie Trailers</li>
+                <li>English Subtitled Movies Trailers</li>
+                <li>Latest Movies Trailers</li>
+                <li>New Movies Trailers</li>
 
-				</ul>
-			</div>
+            </ul>
+        </div>
 
-		</footer>
+    </footer>
 
-		<!-- Swiper JS -->
-		<script src="js/swiper.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper.min.js"></script>
 
-		<!-- Initialize Swiper -->
-		<script>
+    <!-- Initialize Swiper -->
+    <script>
 			$(document).ready(function(){
 
 
@@ -259,9 +267,10 @@
 			});
 
 			
-		</script>
+
+    </script>
 
 
-	</div>
+</div>
 </body>
 </html>
