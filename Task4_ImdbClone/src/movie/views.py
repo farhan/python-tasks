@@ -27,8 +27,8 @@ class MovieDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(MovieDetail, self).get_context_data(**kwargs)
         context['links'] = MovieLinks.objects.filter(movie=self.get_object())
-        # context['related_movies'] = Movie.objects.filter(
-        #     category=self.get_object().category)  # .order_by['created'][0:6]
+        context['related_movies'] = Movie.objects.filter(
+            category=self.get_object().category)  # .order_by['created'][0:6]
         return context
 
 
