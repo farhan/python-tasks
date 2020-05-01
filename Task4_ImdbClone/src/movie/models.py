@@ -39,6 +39,7 @@ class Movie(models.Model):
     year_of_production = models.DateField()
     views_count = models.IntegerField(default=0)
     slug = models.SlugField(blank=True)
+    movie_trailer = models.URLField()
 
     def __str__(self):
         return self.title
