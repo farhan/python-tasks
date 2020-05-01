@@ -25,12 +25,12 @@
 <div class="wrapper">
 
     <header class="header">
-        <figure class="logo"><a href="index.html"><img
+        <figure class="logo"><a href="{% url 'movies:movie_list'%}"><img
                 src="{% static 'img/logo.png'%}" alt="Logo"></a></figure>
         </a>
         <nav class="menu">
             <ul>
-                <li><a href="{% url 'movies:movie_list'%}">Home</a></li>
+                <li><a href="{% url 'movies:home'%}">Home</a></li>
                 <li><a>Genres</a>
                     <ul>
                         <li><a href="{% url 'movies:movie_category' 'action' %}">Action</a>
@@ -72,7 +72,7 @@
             <input type="submit" value="" class="searchsubmit">
         </form>
 
-        <div class="toggle"><img src="img/menu.svg"></div>
+        <div class="toggle"><img src="{% static 'img/menu.svg' %}"></div>
     </header>
     <!-- Swiper -->
     <div class="homeslider">
@@ -127,7 +127,7 @@
     </footer>
 
     <!-- Swiper JS -->
-    <script src="js/swiper.min.js"></script>
+    <script src="{% static 'js/swiper.min.js' %}"></script>
 
     <!-- Initialize Swiper -->
     <script>

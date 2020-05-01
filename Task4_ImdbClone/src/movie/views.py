@@ -8,6 +8,21 @@ from .models import Movie, MovieLinks
 logger = logging.getLogger(__name__)
 
 
+class HomeView(ListView):
+    model = Movie
+    template_name = 'movie/home.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        context['top_rated'] = Movie.objects.filter(status='TR')
+        context['most_watched'] = Movie.objects.filter(status='MW')
+        context['recently_added'] = Movie.objects.filter(status='RA')
+        print(context['top_rated'])
+        print(context['most_watched'])
+        print(context['recently_added'])
+        return context
+
+
 # Create your views here.
 class MovieList(ListView):
     model = Movie
