@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.utils import timezone
 from django.utils.text import slugify
 
 CATEGORY_CHOICES = (
@@ -40,6 +41,7 @@ class Movie(models.Model):
     views_count = models.IntegerField(default=0)
     slug = models.SlugField(blank=True)
     movie_trailer = models.URLField()
+    created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
