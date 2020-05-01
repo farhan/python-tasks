@@ -11,4 +11,5 @@ urlpatterns = [
     path('language/<str:language>', MovieLanguage.as_view(), name="movie_language"),
     path('search/', MovieSearch.as_view(), name="movie_search"),
     path('year/<int:year>', MovieYear.as_view(), name="movie_year"),
+    path('<slug:slug>', MovieDetail.as_view() , name='movie_detail'),
 ]

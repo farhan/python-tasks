@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__)
 class MovieList(ListView):
     model = Movie
     paginate_by = 2
+    # template_name = 'name.html'
 
 
 class MovieDetail(DetailView):

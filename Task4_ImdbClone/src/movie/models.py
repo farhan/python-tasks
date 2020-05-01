@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.utils.text import slugify
 
 CATEGORY_CHOICES = (
     ('action', 'ACTION'),
@@ -20,6 +21,11 @@ STATUS_CHOICES = (
     ('TR', 'TOP RATED'),
 )
 
+LINK_CHOICES = (
+    ('D', 'DOWNLOAD LINK'),
+    ('W', 'WATCH LINK'),
+)
+
 
 class Movie(models.Model):
     title = models.CharField(max_length=100)
@@ -32,15 +38,15 @@ class Movie(models.Model):
     cast = models.CharField(max_length=100)
     year_of_production = models.DateField()
     views_count = models.IntegerField(default=0)
+    slug = models.SlugField(blank=True)
 
     def __str__(self):
         return self.title
 
-
-LINK_CHOICES = (
-    ('D', 'DOWNLOAD LINK'),
-    ('W', 'WATCH LINK'),
-)
+    def save(self, *args, **kwargs):
+        if (not self.slug):
+            self.slug = slugify(self.title, allow_unicode=True)
+        super().save(*args, **kwargs)
 
 
 class MovieLinks(models.Model):
