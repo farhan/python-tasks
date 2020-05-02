@@ -11,7 +11,7 @@ https://github.com/farhan/python-tasks/wiki/Django-URL-Shortening-Project
 All required packages to run this project are mentioned in 'requirements.txt' file.
 To install them use the following command:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 
 ## Running the Application
@@ -21,7 +21,7 @@ a new one.
 
 Just run the development web server:
 
-    ./manage.py runserver
+`./manage.py runserver`
 
 To access the applications go to the URL http://localhost:8000/
 
@@ -32,7 +32,7 @@ You need a user and password to access admin portal http://localhost:8000/admin/
 
 You can create a user using the following command:
 
-    ./manage.py createsuperuser
+`./manage.py createsuperuser`
 
 or you can use already created one
 
