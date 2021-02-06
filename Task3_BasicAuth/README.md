@@ -3,6 +3,9 @@
 This is the example project to run the authentication flows 
 using Python Django.
 
+Its the example demonstration of 
+Views and Class based views.
+
 ### Technologies
 Python, Django
 
@@ -27,3 +30,15 @@ Go to src directory and run following command
 Home of project
 
 http://127.0.0.1:8000/
+
+**Admin portal**
+You need a user and password to access admin portal http://localhost:8000/admin/
+
+You can create a user using the following command:
+
+./manage.py createsuperuser
+
+or you can use already created one
+
+email: admin@g.com
+password: arbisoft

@@ -1,4 +1,7 @@
+import datetime
+
 from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.views.generic import View
@@ -54,6 +57,7 @@ class RegisterView(BaseView):
 
 
 class LoginView(BaseView):
+    # Following are not overridden fields but new fields define in the class
     template_name = 'login.html'
     form_class = LoginForm
 
@@ -61,7 +65,7 @@ class LoginView(BaseView):
         if request.user.is_authenticated():
             return redirect(reverse('home'))
         if not request.GET:
-            form = self.form_class(None, initial={'email': request.GET.get('email', '')})
+            form = LoginForm(None, initial={'email': request.GET.get('email', '')})
             return render(request, self.template_name, {'form': form})
 
     def post(self, request):
@@ -82,3 +86,13 @@ class LoginView(BaseView):
             else:
                 message = Message.LOGIN_INVALID
         return render(self.request, self.template_name, {'error': message, 'form': form})
+
+
+def current_datetime(request):
+    """
+    View: A view function, or view for short, is a Python function that takes a Web request and returns a Web response.
+    An example of simple view returning the current date time
+    """
+    now = datetime.datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
