@@ -34,4 +34,5 @@ http://127.0.0.1:8000/
 
 #### Super user:
 
+admin@g.com/arbisoft
 f@g.com/edx12345

@@ -18,7 +18,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = UserProfile.objects.all()
     authentication_classes = (TokenAuthentication,)
     permission_classes = (UpdateOwnProfile,)
-    http_method_names = ['get', 'post', 'head', 'patch'] #, 'delete']
+    http_method_names = ['get', 'post', 'head', 'patch', 'delete']
 
 class LoginViewSet(viewsets.ViewSet):
     """Checks email and password and returns an auth token."""
@@ -59,6 +59,7 @@ class ChangePasswordApiView(UpdateAPIView):
     model = settings.AUTH_USER_MODEL
     authentication_classes = (TokenAuthentication,)
     permission_classes = (UpdateOwnProfile,)
+    http_method_names = ['patch']
 
     def patch(self, request, pk=None):
         serializer = self.get_serializer(data=request.data)

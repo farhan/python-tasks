@@ -45,14 +45,14 @@ Home of project
 http://127.0.0.1:8000/
 
 #### Super user:
-farhan/f@g.com/edx12345
+farhan/f@g.com/arbisoft
 #### Other profiles:
 adnan/adnan, usman/usman
 #### Followers
 Usman is following Adnan and Farhan
 Adnan is following Farhan
 
-#### Following way is Archived
+#### Following way to run project via vagrant is not maintained
 ```
 # How to run the Project
 Checkout the project.
