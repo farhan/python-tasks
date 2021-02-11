@@ -6,6 +6,11 @@ https://www.udemy.com/course/building-movies-site-with-python-django-imdb-clone
 ### Technologies
 Python, Django
 
+### Learning in the project
+- Django Templates
+- Write front end based on the Django Views vis template library
+- Used built in Django Views classes.
+
 ### Run project
 
 Clone the whole repository and go to following directory
@@ -27,3 +32,7 @@ Go to src directory and run following command
 Home of project
 
 http://127.0.0.1:8000/movies/
+
+
+Admin:
+farhan/arbisoft

@@ -17,9 +17,9 @@ class HomeView(ListView):
         context['top_rated'] = Movie.objects.filter(status='TR')
         context['most_watched'] = Movie.objects.filter(status='MW')
         context['recently_added'] = Movie.objects.filter(status='RA')
-        print(context['top_rated'])
-        print(context['most_watched'])
-        print(context['recently_added'])
+        print(f"> top_rated {context['top_rated']}")
+        print(f"> most_watched {context['most_watched']}")
+        print(f"> recently_added {context['recently_added']}")
         return context
 
 
@@ -94,6 +94,10 @@ class MovieSearch(ListView):
 
 
 class MovieYear(YearArchiveView):
+    """
+    https://docs.djangoproject.com/en/3.1/ref/class-based-views/generic-date-based/#yeararchiveview
+    """
+    # template_name = "movie/about.html"
     queryset = Movie.objects.all()
     date_field = 'year_of_production'
     make_object_list = True

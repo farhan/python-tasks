@@ -53,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'recipe_management.middleware.SimpleMiddleware'
 ]
 
 ROOT_URLCONF = 'recipe_management.urls'

@@ -52,6 +52,22 @@
             </nav>
             {% endif %}
         </section>
+        <section>
+            <h3>Testing Data</h3>
+            {% for date in date_list %}
+                <li>{{ date|date }}</li>
+            {% endfor %}
+            </ul>
+
+            <div>
+                <h1>All Movies for {{ year|date:"Y" }}</h1>
+                {% for obj in object_list %}
+                    <p>
+                        {{ obj.title }} - {{ obj.year_of_production|date:"F j, Y" }}
+                    </p>
+                {% endfor %}
+            </div>
+        </section>
     </main>
 </main>
 {% endblock body %}

@@ -4,7 +4,11 @@ This is the example project to run the authentication flows
 using Python Django.
 
 Its the example demonstration of 
-Views and Class based views.
+- Views
+- Class based views.
+- Forms
+- Model Forms
+
 
 ### Technologies
 Python, Django

@@ -52,6 +52,22 @@
                 <!-- Add Pagination -->
             </div>
         </div>
+        <div>
+            <h2> Test content to print object_list</h2>
+            <ul>
+                <!-- Iterate over object_list -->
+                {% for object in object_list %}
+                    <!-- Display Objects -->
+                    <li style="color:white">{{ object.title }}</li>
+                    <li style="color:white">{{ object.slug }}</li>
+
+                    <hr/>
+                    <!-- If objet_list is empty  -->
+                    {% empty %}
+                    <li>No objects yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
     </section>
 </main>
 
